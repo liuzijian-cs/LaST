@@ -7,7 +7,7 @@ The paper is currently under preparation and revision🥺. We are working hard t
 Expected Timeline:
 - [x] [2024-11-13] Model Implementation
 - [x] [2024-12-26] Experimental Results
-- [ ] Paper Writing and Revision
+- [ ] Paper Writing and Revision（仍在努力修改，我太菜了🥺Still working hard on the revisions, trying to learn how to write a good academic article🙀.）
 - [ ] Code Release
 
 
