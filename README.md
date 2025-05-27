@@ -24,11 +24,27 @@ pip install lightning wandb opencv-python torchmetrics torchvision matplotlib ri
 # python -m ipykernel install --user --name=last
 ```
 
-# Download the dataset 🗂️:
 
 
 
+# 🏋️‍♂️ Train:
+## Download the dataset 🗂️:
 
+
+## How to Train on Your Own Dataset ☝️:
+
+
+## 🏋️‍♂️ Training:
+We provide two main methods for training your model, along with a script example for sequential training:
+
+### ✅ Method 1: Prepare Configuration Files
+
+
+### ✅ Method 2: Use Command-Line Arguments
+
+
+### 🔁 Sequential Training Script
+ 
 
 
 
@@ -46,6 +62,7 @@ If you find this repository useful, please consider citing our paper (citation t
     title = {LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness},
     author = {Zijian Liu, Yehao Wang, Zhuolin Li, Jie Yu, Chengci Wang, Zhiyu Liu, Shuai Zhang and Lingyu Xu},
     booktitile = {},
+    note = {Under review},
     year={2025}
 }
 ```
