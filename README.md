@@ -14,7 +14,7 @@ Expected Timeline:
 - [ ] Code Release
 
 
-# Quick Start 🎇:
+# 1. Quick Start 🎇:
 ```shell
 conda create -n LaST python=3.12
 conda activate LaST
@@ -27,14 +27,14 @@ pip install lightning wandb opencv-python torchmetrics torchvision matplotlib ri
 
 
 
-# 🏋️‍♂️ Train:
-## Download the dataset 🗂️:
+# 2. Train 🏋️‍♂️ :
+## 2.1. Download the dataset 🗂️:
 
 
-## How to Train on Your Own Dataset ☝️:
+## 2.2. How to Train on Your Own Dataset ☝️:
 
 
-## 🏋️‍♂️ Training:
+## 2.3. Training 🏋️‍♂️:
 We provide two main methods for training your model, along with a script example for sequential training:
 
 ### ✅ Method 1: Prepare Configuration Files
