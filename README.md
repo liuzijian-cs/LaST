@@ -30,12 +30,25 @@ pip install lightning wandb opencv-python torchmetrics torchvision matplotlib ri
 
 
 
+
+
+
 # Acknowledgements & References 🔗:
 
 1. Our overall training framework is largely inspired by [OpenSTL](https://github.com/chengtan9907/OpenSTL), which we adapted and refactored to better align with the standard PyTorch Lightning usage paradigm.
 2. Our core ideas are also significantly influenced by [PredFormer](https://arxiv.org/abs/2410.04733).
 
+# Citation 📚:
 
+If you find this repository useful, please consider citing our paper (citation to be updated upon publication):
+```bibtex
+@ARTICLE{Liu2025LaST,
+    title = {LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness},
+    author = {Zijian Liu, Yehao Wang, Zhuolin Li, Jie Yu, Chengci Wang, Zhiyu Liu, Shuai Zhang and Lingyu Xu},
+    booktitile = {},
+    year={2025}
+}
+```
 
 
 
