@@ -33,6 +33,18 @@ pip install lightning wandb opencv-python torchmetrics torchvision matplotlib ri
 # 2. Train 🏋️‍♂️ :
 ## 2.1. Download the dataset 🗂️:
 
+<details>
+<summary>📂 Click to expand full dataset download table</summary>
+
+| Dataset Name                                                               | Google Drive Link                                      | Baidu Drive Link                           |Description|
+|----------------------------------------------------------------------------|--------------------------------------------------------|--------------------------------------------|---------------------------------------------|
+| [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)      | [Download]()              | [Download]() pwd: `abcd`                   ||
+| [Weather Bench](https://github.com/pangeo-data/WeatherBench)(T2m, Tcc, Rl) | [Download](https://drive.google.com/yyy)              | ||
+| [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               |||
+| [CORAv2.0](https://mds.nmdis.org.cn/)(Ssh)                                 |||
+
+</details>
+
 
 ## 2.2. How to Train on Your Own Dataset ☝️:
 
