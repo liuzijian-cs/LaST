@@ -1,13 +1,16 @@
 # LaST
-This repository contains the code and models for our paper "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Perception". The implementation is based on PyTorch and PyTorch Lightning frameworks.
+This repository contains the code and models for our paper "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness". The implementation is based on PyTorch and PyTorch Lightning frameworks.
 
 # Status🔬:
-The paper is currently under preparation and revision🥺. We are working hard to finalize our research and will release the full code upon publication. Stay tuned!
+
+Our paper has now entered the peer-review process. We have diligently completed the writing and undergone multiple rounds of revision. We will also be continually uploading and updating non-core modules of the code. The full code will, of course, be released upon publication. Stay tuned!🫡
 
 Expected Timeline:
 - [x] [2024-11-13] Model Implementation
 - [x] [2024-12-26] Experimental Results
-- [ ] Paper Writing and Revision（仍在努力修改，我太菜了🥺Still working hard on the revisions, trying to learn how to write a good academic article🙀.）
+- [x] [2025-02-17] Futher Analysis and Paper Writing
+- [x] [2025-05-27] Paper Writing and Revision
+- [ ] The paper is under review & We are organising and uploading partial code.
 - [ ] Code Release
 
 
