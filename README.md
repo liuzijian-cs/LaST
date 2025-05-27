@@ -1,7 +1,7 @@
 # LaST
 This repository contains the code and models for our paper "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness". The implementation is based on PyTorch and PyTorch Lightning frameworks.
 
-# Status🔬:
+# Status 🔬:
 
 Our paper has now entered the peer-review process. We have diligently completed the writing and undergone multiple rounds of revision. We will also be continually uploading and updating non-core modules of the code. The full code will, of course, be released upon publication. Stay tuned!🫡
 
@@ -14,14 +14,29 @@ Expected Timeline:
 - [ ] Code Release
 
 
-# Quick Start🎇:
+# Quick Start 🎇:
 ```shell
-conda create -n last python=3.12
-conda activate last
+conda create -n LaST python=3.12
+conda activate LaST
 pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy
 # pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy -i https://mirrors.aliyun.com/pypi/simple
+
 # python -m ipykernel install --user --name=last
 ```
+
+# Download the dataset 🗂️:
+
+
+
+
+
+# Acknowledgements & References 🔗:
+
+1. Our overall training framework is largely inspired by [OpenSTL](https://github.com/chengtan9907/OpenSTL), which we adapted and refactored to better align with the standard PyTorch Lightning usage paradigm.
+2. Our core ideas are also significantly influenced by [PredFormer](https://arxiv.org/abs/2410.04733).
+
+
+
 
 
 ---
