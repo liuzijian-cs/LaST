@@ -1,3 +1,7 @@
+**We are actively organizing the training framework and code. Once the paper is reviewed, the code and model checkpoints will be released here immediately 🫡**
+
+**我们正在积极的整理训练框架和代码，论文一旦完成审阅，代码和模型检查点将立即公布在此处🫡**
+
 # LaST
 
 English | [简体中文](docs/cn/README_CN.md)
@@ -13,7 +17,7 @@ Expected Timeline:
 - [x] [2024-12-26] Experimental Results
 - [x] [2025-02-17] Further Analysis and Paper Writing
 - [x] [2025-05-27] Paper Writing and Revision
-- [ ] The paper is under review & We are organising and uploading partial code.
+- [ ] [now] The paper is under review & We are organising and uploading partial code.
 - [ ] Code Release
 
 
@@ -21,10 +25,13 @@ Expected Timeline:
 ```shell
 conda create -n LaST python=3.12
 conda activate LaST
+
+# Install the required packages
 pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy
 # pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy -i https://mirrors.aliyun.com/pypi/simple
 
-# python -m ipykernel install --user --name=last
+# (Optional) For Jupter Notebook users, you can install the kernel with the following command:
+python -m ipykernel install --user --name=last
 ```
 
 
@@ -33,7 +40,24 @@ pip install lightning wandb opencv-python torchmetrics torchvision matplotlib ri
 # 2. Train 🏋️‍♂️ :
 ## 2.1. Download the dataset 🗂️:
 
-<details>
+为了方便大家使用，我们已经将一些常用的数据集整理并上传到Google Drive和Baidu Drive上。您可以直接下载这些数据集，或者根据需要自行下载。
+
+涉及数据部分的代码结构如下：
+
+```text
+├── data
+│   ├── __init__.py  # 如果你需要添加自己的数据，需要在这个文件中的data_dict字典和setup_data()函数中加入引入你的数据集
+│   ├── TaxiBJ
+│   │   ├── __init__.py
+│   │   ├── conf.yaml       # 配置文件，包含数据集的相关参数
+│   │   ├── dataset.npz     # 这是TaxiBJ数据集文件
+│   │   └── TaxiBJDataModule.py     # 数据处理文件
+...
+```
+完整的数据模块说明请[点击这里](docs/en/data.md)查看。
+
+
+
 <summary>📂 Click to expand full dataset download table</summary>
 
 | Dataset Name                                                               | Google Drive Link                                      | Baidu Drive Link                           |Description|
@@ -43,7 +67,6 @@ pip install lightning wandb opencv-python torchmetrics torchvision matplotlib ri
 | [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               |||
 | [CORAv2.0](https://mds.nmdis.org.cn/)(Ssh)                                 |||
 
-</details>
 
 
 ## 2.2. How to Train on Your Own Dataset ☝️:
