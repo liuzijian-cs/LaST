@@ -38,38 +38,38 @@ python -m ipykernel install --user --name=last
 
 
 # 2. Train 🏋️‍♂️ :
+![](/docs/figs/Table1.jpg)
+Overview of the datasets employed in our experiments.
+
+
 ## 2.1. Download the dataset 🗂️:
 
-为了方便大家使用，我们已经将一些常用的数据集整理并上传到Google Drive和Baidu Drive上。您可以直接下载这些数据集，或者根据需要自行下载。
+To make it easier for everyone, we have organized and uploaded some commonly used datasets to Google Drive and Baidu Drive. You can directly download these datasets or download them yourself as needed.
 
-涉及数据部分的代码结构如下：
+The code structure for the data part is as follows:
 
 ```text
 ├── data
-│   ├── __init__.py  # 如果你需要添加自己的数据，需要在这个文件中的data_dict字典和setup_data()函数中加入引入你的数据集
+│   ├── __init__.py  # If you need to add your own dataset, you need to include it in the data_dict dictionary and the setup_data() function in this file
 │   ├── TaxiBJ
 │   │   ├── __init__.py
-│   │   ├── conf.yaml       # 配置文件，包含数据集的相关参数
-│   │   ├── dataset.npz     # 这是TaxiBJ数据集文件
-│   │   └── TaxiBJDataModule.py     # 数据处理文件
+│   │   ├── conf.yaml               # Configuration file containing dataset-related parameters
+│   │   ├── dataset.npz             # This is the TaxiBJ dataset file
+│   │   └── TaxiBJDataModule.py     # Data processing file
 ...
 ```
-完整的数据模块说明请[点击这里](docs/en/data.md)查看。
-
+For a complete explanation of the data module and instructions on how to train on your own datasets, [please click here](docs/en/data.md).
 
 
 <summary>📂 Click to expand full dataset download table</summary>
 
-| Dataset Name                                                               | Google Drive Link                                      | Baidu Drive Link                           |Description|
-|----------------------------------------------------------------------------|--------------------------------------------------------|--------------------------------------------|---------------------------------------------|
-| [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)      | [Download]()              | [Download]() pwd: `abcd`                   ||
-| [Weather Bench](https://github.com/pangeo-data/WeatherBench)(T2m, Tcc, Rl) | [Download](https://drive.google.com/yyy)              | ||
-| [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               |||
-| [CORAv2.0](https://mds.nmdis.org.cn/)(Ssh)                                 |||
+| Dataset Name                                                               | Google Drive Link                       | Baidu Drive Link                                                    | Description                                               |
+|----------------------------------------------------------------------------|-----------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
+| [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)      | [Download](https://drive.google.com/file/d/1HDN_hF2pOP2JT97kB8VCREIfe5Z22Co-/view?usp=sharing)                            | [Download](https://pan.baidu.com/s/1VDHPuy61GGwqt05t4NVH8A?pwd=iSHU) | `data/TaxiBJ/dataset.npz`                                 |
+| [Weather Bench](https://github.com/pangeo-data/WeatherBench)(T2m, Tcc, Rl) | |                                                                     | `data/WeatherBench/5_625/2_temperature/{xxx}.nc`          |
+| [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               |                                         |                                                                     | `data/Human/images`&`data/Human/images_txt`               |
+| [CORAv2.0](https://mds.nmdis.org.cn/)(Ssh)                                 | -                                       | -                                                                   | Please apply for the dataset at https://mds.nmdis.org.cn. |
 
-
-
-## 2.2. How to Train on Your Own Dataset ☝️:
 
 
 ## 2.3. Training 🏋️‍♂️:
