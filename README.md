@@ -59,7 +59,7 @@ The code structure for the data part is as follows:
 │   │   └── TaxiBJDataModule.py     # Data processing file
 ...
 ```
-For a complete explanation of the data module and instructions on how to train on your own datasets, [please click here](docs/en/data.md).
+For a complete explanation of the data module and instructions on **how to train on your own datasets**, [please click here](docs/en/data.md).
 
 
 <summary>📂 Click to expand full dataset download table</summary>
