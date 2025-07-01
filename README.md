@@ -27,7 +27,8 @@ conda create -n LaST python=3.12
 conda activate LaST
 
 # Install the required packages
-pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy
+pip install lightning -i https://mirrors.aliyun.com/pypi/simple
+# pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy
 # pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy -i https://mirrors.aliyun.com/pypi/simple
 
 # (Optional) For Jupter Notebook users, you can install the kernel with the following command:

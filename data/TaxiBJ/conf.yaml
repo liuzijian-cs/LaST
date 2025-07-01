@@ -1,0 +1,24 @@
+data: TaxiBJ
+data_back:
+  - 4
+  - 2
+  - 32
+  - 32
+data_pred:
+  - 4
+  - 2
+  - 32
+  - 32
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 0.0 ]
+data_std: [ 1.0 ]
+draw_style: heat
+draw_per_channel: True
+#heat_cmap: 'GnBu'
