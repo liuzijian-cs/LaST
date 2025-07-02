@@ -62,14 +62,14 @@ The code structure for the data part is as follows:
 For a complete explanation of the data module and instructions on **how to train on your own datasets**, [please click here](docs/en/data.md).
 
 
-<summary>📂 Click to expand full dataset download table</summary>
+<summary>📥 Click to expand full dataset download table</summary>
 
-| Dataset Name                                                               | Google Drive Link                                                                              | Baidu Drive Link                                                    | Description                                               |
-|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------|
+| Dataset Name                                                               | Google Drive Link                                                                              | Baidu Drive Link                                                     | Description                                               |
+|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------------------------|
 | [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)      | [Download](https://drive.google.com/file/d/1HDN_hF2pOP2JT97kB8VCREIfe5Z22Co-/view?usp=sharing) | [Download](https://pan.baidu.com/s/1VDHPuy61GGwqt05t4NVH8A?pwd=iSHU) | `data/TaxiBJ/dataset.npz`                                 |
-| [Weather Bench](https://github.com/pangeo-data/WeatherBench)(T2m, Tcc, Rl) | (Uploading)                                                                                    | (Uploading)                                                                     | `data/WeatherBench/5_625/2_temperature/{xxx}.nc`          |
-| [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               |    (Uploading)                                                                                             |  (Uploading)                                                                    | `data/Human/images`&`data/Human/images_txt`               |
-| [CORAv2.0](https://mds.nmdis.org.cn/)                                | -                                                                                              | -                                                                   | Please apply for the dataset at https://mds.nmdis.org.cn. |
+| [Weather Bench](https://github.com/pangeo-data/WeatherBench)(T2m, Tcc, Rl) | [Download](https://drive.google.com/file/d/1wxIXK-1vZ9tST_5xB3Ph3QpVB6Q9YhB1/view?usp=sharing) | [Download](https://pan.baidu.com/s/1Wa1S2qjV0fAb0bWlMswnYg?pwd=iSHU) | `data/WeatherBench/5_625/2_temperature/{xxx}.nc`          |
+| [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               | [Download](https://drive.google.com/file/d/1jwrXUO6eBh8689NJO8WYoeNMwXtoUD8t/view?usp=sharing)                                                                                   | [Download](https://pan.baidu.com/s/1x78V54ueiW3Iz2CgMOb6zA?pwd=iSHU)                                                         | `data/Human/images`&`data/Human/images_txt`               |
+| [CORAv2.0](https://mds.nmdis.org.cn/)                                | -                                                                                              | -                                                                    | Please apply for the dataset at https://mds.nmdis.org.cn. |
 
 
 
