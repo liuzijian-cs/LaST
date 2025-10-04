@@ -1,16 +1,14 @@
-    
-
-**We are actively organizing the training framework and code. Once the paper is reviewed, the code and model checkpoints will be released here immediately 🫡**
-
-**我们正在积极的整理训练框架和代码，论文一旦完成审阅，代码和模型检查点将立即公布在此处🫡**
-
 # LaST
 
 English | [简体中文](docs/cn/README_CN.md)
 
 This repository contains the code and models for our paper "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness". The implementation is based on PyTorch and PyTorch Lightning frameworks.
 
-# Status 🔬:
+**We are actively organizing the training framework and code. Once the paper is reviewed, the code and model checkpoints will be released here immediately** 🫡
+
+**我们正在积极的整理训练框架和代码，论文一旦完成审阅，代码和模型检查点将立即公布在此处**🫡
+
+## Status 🔬
 
 Our paper has now entered the peer-review process. We have diligently completed the writing and undergone multiple rounds of revision. We will also be continually uploading and updating non-core modules of the code. The full code will, of course, be released upon publication. Stay tuned!🫡
 
@@ -58,9 +56,9 @@ uv sync
 source .venv/bin/activate
 ```
 
+### Conda & Forge
 
-## 1.2 Conda
-
+TODO: 后续更新
 
 ```shell
 conda create -n LaST python=3.12
@@ -74,6 +72,30 @@ pip install lightning -i https://mirrors.aliyun.com/pypi/simple
 # (Optional) For Jupter Notebook users, you can install the kernel with the following command:
 python -m ipykernel install --user --name=last
 ```
+
+## 1.2 Inference with Model Checkpoints
+
+
+
+## 1.3 Training the Model from Scratch
+
+
+
+# 2. Implementation Framework of LaST
+
+Ours Framework (the toolkit for training LaST) is a spatio-temporal modeling and video prediction framework built on the Lightning platform. It is designed for efficient data processing, model construction, result analysis, and visualization. The framework supports a wide range of spatio-temporal prediction tasks, including weather forecasting, video analysis, and traffic flow prediction, among others.
+
+All modules are developed in strict adherence to Lightning's design principles, utilizing Callback functions to enable a modular architecture. This approach ensures simplicity, extensibility, and efficiency, providing researchers and developers with a powerful, flexible solution for spatio-temporal data modeling.
+
+TODO: 这里说明整个框架结构
+```text
+LaST/
+
+
+```
+
+
+
 
 # 2. Train 🏋️‍♂️ :
 
