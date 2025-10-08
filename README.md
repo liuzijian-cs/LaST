@@ -73,11 +73,18 @@ pip install lightning -i https://mirrors.aliyun.com/pypi/simple
 python -m ipykernel install --user --name=last
 ```
 
-## 1.2 Inference with Model Checkpoints
+## 1.2 Data Preparation
 
 
 
-## 1.3 Training the Model from Scratch
+
+
+
+## 1.3 Inference with Model Checkpoints
+
+
+
+## 1.4 Training the Model from Scratch
 
 
 
