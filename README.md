@@ -8,6 +8,8 @@ This repository contains the code and models for our paper "LaST: A Transformer-
 
 **我们正在积极的整理训练框架和代码，论文一旦完成审阅，代码和模型检查点将立即公布在此处**🫡
 
+**The code will be released by November 24th at the latest.**
+
 ## Status 🔬
 
 Our paper has now entered the peer-review process. We have diligently completed the writing and undergone multiple rounds of revision. We will also be continually uploading and updating non-core modules of the code. The full code will, of course, be released upon publication. Stay tuned!🫡
@@ -19,7 +21,7 @@ Expected Timeline:
 - [X] [2025-02-17] Further Analysis and Paper Writing
 - [X] [2025-05-27] Paper Writing and Revision. 
 - [X] [2025-10-02] The paper is under review & We are organising and uploading partial code.
-- [ ] [now] Ongoing supplementary experiments and in-depth refinements; code will be refactored and released soon.
+- [X] [2025-11-11] Ongoing supplementary experiments and in-depth refinements; code will be refactored and released soon.
 - [ ] Code Release
 
 # 1. Quick Start 🎇:
