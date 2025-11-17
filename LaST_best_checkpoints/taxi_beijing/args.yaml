@@ -1,0 +1,70 @@
+project_name: LaST_taxibj
+working_path: working_path
+version_name: LaST_taxibj_eval
+
+seed: 42
+
+model: LaST
+
+data: TaxiBJ
+data_root: data
+data_back:
+- 4
+- 2
+- 32
+- 32
+data_pred:
+- 4
+- 2
+- 32
+- 32
+data_mean:
+- 0.0
+data_std:
+- 1.0
+heat_cmap: viridis
+draw_style: heat
+draw_per_channel: true
+inverse_transform: false
+
+metrics:
+- mae
+- mse
+- psnr
+- ssim
+- rmse
+- mae_pixel
+- mse_pixel
+
+epoch: 200
+batch_size: 16
+val_batch_size: 16
+accumulate_grad_batches: 1
+lr_scheduler: onecycle
+lr: 0.001
+
+d_model: 128
+s_patch: 4
+r_forward: 4
+n_heads: 8
+n_layer: 6
+dropout: 0.1
+drop_path: 0.1
+
+attn_bias: false
+s_kernel: 1
+s_local:
+- 3
+- 3
+- 3
+
+fp16: true
+device: gpu
+ddp: false
+n_device: 1
+num_nodes: 1
+num_workers: 0
+gard_clip: 0.1
+logger_wandb: false
+n_model_save: 3
+n_val_every: 1

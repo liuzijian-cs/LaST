@@ -1,0 +1,72 @@
+project_name: LaST_human
+working_path: working_path
+version_name: LaST_human_eval_1gpu
+
+seed: 42
+
+model: LaST
+
+data: Human
+data_root: D:\\PaperProjects\\LaST\\data
+data_back:
+- 4
+- 3
+- 256
+- 256
+data_pred:
+- 4
+- 3
+- 256
+- 256
+data_mean:
+- 0.0
+data_std:
+- 255.0
+heat_cmap: viridis
+draw_style: rgb
+draw_per_channel: false
+inverse_transform: false
+
+metrics:
+- mae
+- mse
+- psnr
+- ssim
+- rmse
+- mae_pixel
+- mse_pixel
+
+epoch: 50
+batch_size: 8
+val_batch_size: 8
+accumulate_grad_batches: 1
+lr_scheduler: onecycle
+lr: 0.00025
+
+
+d_model: 256
+s_patch: 8
+r_forward: 4
+n_heads: 8
+n_layer: 6
+dropout: 0.1
+drop_path: 0.2
+
+attn_bias: false
+s_kernel: 1
+s_local:
+- 3
+- 3
+- 3
+
+fp16: true
+device: gpu
+ddp: false
+n_device: 1
+num_nodes: 1
+num_workers: 0
+gard_clip: 0.1
+logger_wandb: false
+n_model_save: 3
+n_val_every: 1
+

@@ -19,7 +19,7 @@ Expected Timeline:
 - [X] [2024-11-13] Model Implementation
 - [X] [2024-12-26] Experimental Results
 - [X] [2025-02-17] Further Analysis and Paper Writing
-- [X] [2025-05-27] Paper Writing and Revision. 
+- [X] [2025-05-27] Paper Writing and Revision.
 - [X] [2025-10-02] The paper is under review & We are organising and uploading partial code.
 - [X] [2025-11-11] Ongoing supplementary experiments and in-depth refinements; code will be refactored and released soon.
 - [ ] Code Release
@@ -35,11 +35,13 @@ Expected Timeline:
 #### For Windows System:
 
 - Install uv:
+
 ```bash
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 - Sync and Activate Environment:
+
 ```bash
 uv sync
 .venv\Scripts\activate
@@ -48,11 +50,13 @@ uv sync
 #### For Linux and macOS Systems:
 
 - Install uv:
+
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 - Sync and Activate Environment:
+
 ```bash
 uv sync
 source .venv/bin/activate
@@ -77,18 +81,9 @@ python -m ipykernel install --user --name=last
 
 ## 1.2 Data Preparation
 
-
-
-
-
-
 ## 1.3 Inference with Model Checkpoints
 
-
-
 ## 1.4 Training the Model from Scratch
-
-
 
 # 2. Implementation Framework of LaST
 
@@ -97,14 +92,12 @@ Ours Framework (the toolkit for training LaST) is a spatio-temporal modeling and
 All modules are developed in strict adherence to Lightning's design principles, utilizing Callback functions to enable a modular architecture. This approach ensures simplicity, extensibility, and efficiency, providing researchers and developers with a powerful, flexible solution for spatio-temporal data modeling.
 
 TODO: 这里说明整个框架结构
+
 ```text
 LaST/
 
 
 ```
-
-
-
 
 # 2. Train 🏋️‍♂️ :
 
@@ -132,12 +125,12 @@ For a complete explanation of the data module and instructions on **how to train
 
 <summary>📥 Click to expand full dataset download table</summary>
 
-| Dataset Name                                                            | OneDrive                                                                           | BaiduNetDisk                                                  | Description                                               |
-| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------- |
+| Dataset Name                                                            | OneDrive                                                                                     | BaiduNetDisk                                                      | Description                                               |
+| ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------- |
 | [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ)      | [Download](https://1drv.ms/u/c/b756f405097b8e82/ETbnKFeKkNVDjOB5UwtXn_0BXR_VoNS3_2uPPcJbcopvyg) | [Download](https://pan.baidu.com/s/1VDHPuy61GGwqt05t4NVH8A?pwd=iSHU) | `data/TaxiBJ/dataset.npz`                               |
 | [Weather Bench](https://github.com/pangeo-data/WeatherBench)(T2m, Tcc, Rl) | [Download](https://1drv.ms/u/c/b756f405097b8e82/ETbnKFeKkNVDjOB5UwtXn_0BXR_VoNS3_2uPPcJbcopvyg) | [Download](https://pan.baidu.com/s/1Wa1S2qjV0fAb0bWlMswnYg?pwd=iSHU) | `data/WeatherBench/5_625/2_temperature/{xxx}.nc`        |
 | [Human3.6M](http://vision.imar.ro/human3.6m/description.php)               | [Download](https://1drv.ms/f/c/b756f405097b8e82/Ep1YpOl6MhFBi0vEZ7zGKJQB9u7rssMvxgob4kTizr36CQ) | [Download](https://pan.baidu.com/s/1Rt69aYiugVPQci9YJK25Tg?pwd=iSHU) | `data/Human/images`&`data/Human/images_txt`           |
-| [CORAv2.0](https://mds.nmdis.org.cn/)                                      | -                                                                                           | -                                                                 | Please apply for the dataset at https://mds.nmdis.org.cn. |
+| [CORAv2.0](https://mds.nmdis.org.cn/)                                      | -                                                                                            | -                                                                 | Please apply for the dataset at https://mds.nmdis.org.cn. |
 
 ## 2.3. Training 🏋️‍♂️:
 
