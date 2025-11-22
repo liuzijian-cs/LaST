@@ -1,28 +1,14 @@
-# LaST
+# LaST: A Transformer-Based Network for Spatio-temporal Predictive Learning with Dynamic Local Awareness
+
+This repository contains the training framework, model implementation, configuration files, and checkpoints for our paper, "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness." The implementation is based on PyTorch and PyTorch Lightning.
 
 English | [简体中文](docs/cn/README_CN.md)
 
-This repository contains the code and models for our paper "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness". The implementation is based on PyTorch and PyTorch Lightning frameworks.
-
-**We are actively organizing the training framework and code. Once the paper is reviewed, the code and model checkpoints will be released here immediately** 🫡
-
-**我们正在积极的整理训练框架和代码，论文一旦完成审阅，代码和模型检查点将立即公布在此处**🫡
-
-**The code will be released by November 24th at the latest.**
-
 ## Status 🔬
 
-Our paper has now entered the peer-review process. We have diligently completed the writing and undergone multiple rounds of revision. We will also be continually uploading and updating non-core modules of the code. The full code will, of course, be released upon publication. Stay tuned!🫡
-
-Expected Timeline:
-
-- [X] [2024-11-13] Model Implementation
-- [X] [2024-12-26] Experimental Results
-- [X] [2025-02-17] Further Analysis and Paper Writing
-- [X] [2025-05-27] Paper Writing and Revision.
-- [X] [2025-10-02] The paper is under review & We are organising and uploading partial code.
-- [X] [2025-11-11] Ongoing supplementary experiments and in-depth refinements; code will be refactored and released soon.
-- [ ] Code Release
+- [X] [2025-11-22] **Code Release**（**The relevant model code has been uploaded**, and the remaining code will be gradually supplemented.）
+- [ ] We are actively organizing and uploading all code related to training and validation.
+- [ ] We are actively writing relevant documentation to help readers quickly understand and reproduce our research.
 
 # 1. Quick Start 🎇:
 
