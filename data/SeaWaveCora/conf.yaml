@@ -1,0 +1,29 @@
+data: SeaWaveCora
+data_back:
+  - 7
+  - 1
+  - 40
+  - 40
+data_pred:
+  - 7
+  - 1
+  - 40
+  - 40
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 0.8862621808307641 ]
+data_std: [ 0.04662053225539691 ]
+
+
+
+draw_style: heat
+heat_cmap: 'Blues'
+inverse_transform: False
+draw_per_channel: True
+

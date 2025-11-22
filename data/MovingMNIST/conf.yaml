@@ -1,0 +1,24 @@
+data: MovingMNIST
+data_back:
+  - 10
+  - 1
+  - 64
+  - 64
+data_pred:
+  - 10
+  - 1
+  - 64
+  - 64
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 0.0 ]
+data_std: [ 255.0 ]
+draw_style: gray
+draw_per_channel: False
+

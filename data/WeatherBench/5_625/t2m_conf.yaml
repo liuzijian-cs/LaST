@@ -1,0 +1,25 @@
+data: t2m
+data_back:
+  - 12
+  - 1
+  - 32
+  - 64
+data_pred:
+  - 12
+  - 1
+  - 32
+  - 64
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 279.07648 ]  # 279.07648 from openstl(Their license is the Apache-2.0 License.)
+data_std: [ 21.17883 ]  # 21.17883 from openstl(Their license is the Apache-2.0 License.)
+draw_style: heat
+heat_cmap: 'GnBu'
+draw_per_channel: True
+inverse_transform: True

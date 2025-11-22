@@ -1,0 +1,25 @@
+data: r
+data_back:
+  - 12
+  - 1
+  - 32
+  - 64
+data_pred:
+  - 12
+  - 1
+  - 32
+  - 64
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 78.09089 ]  # 78.09089 from openstl(Their license is the Apache-2.0 License.)
+data_std: [ 18.23997 ]  # 18.23997 from openstl(Their license is the Apache-2.0 License.)
+draw_style: heat
+heat_cmap: 'GnBu'
+draw_per_channel: True
+inverse_transform: True

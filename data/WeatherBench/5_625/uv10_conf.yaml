@@ -1,0 +1,26 @@
+data: uv10
+data_back:
+  - 12
+  - 2
+  - 32
+  - 64
+data_pred:
+  - 12
+  - 2
+  - 32
+  - 64
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ -0.08945906, 0.25149018 ]  # from openstl(Their license is the Apache-2.0 License.)
+data_std: [ 5.612588, 4.808592 ]  # from openstl(Their license is the Apache-2.0 License.)
+
+draw_style: heat
+heat_cmap: 'GnBu'
+draw_per_channel: True
+inverse_transform: True

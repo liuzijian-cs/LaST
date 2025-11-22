@@ -6,3 +6,6 @@
 *.iml
 shelf/
 workspace.xml
+
+# Python
+__pycache__/

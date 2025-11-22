@@ -1,0 +1,26 @@
+data: Human
+data_back:
+  - 4
+  - 3
+  - 256
+  - 256
+data_pred:
+  - 4
+  - 3
+  - 256
+  - 256
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 0.0 ]
+data_std: [ 255.0 ]
+
+
+draw_style: rgb
+draw_per_channel: False
+

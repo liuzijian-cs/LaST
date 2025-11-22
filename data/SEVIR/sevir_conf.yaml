@@ -1,0 +1,31 @@
+data: sevir
+data_back:
+  - 12
+  - 1
+  - 384
+  - 384
+data_pred:
+  - 13
+  - 1
+  - 384
+  - 384
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+  - sevir
+data_mean: [ 0.0 ]  # PREPROCESS_OFFSET_SEVIR (Earthformer) 33.44
+data_std: [ 255.0 ]  # PREPROCESS_SCALE_SEVIR (Earthformer) 47.54
+
+draw_style: heat
+draw_per_channel: True
+inverse_transform: False
+
+
+
+
+

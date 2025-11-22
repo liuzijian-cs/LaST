@@ -1,0 +1,25 @@
+data: tcc
+data_back:
+  - 12
+  - 1
+  - 32
+  - 64
+data_pred:
+  - 12
+  - 1
+  - 32
+  - 64
+metrics:
+  - mae
+  - mse
+  - psnr
+  - ssim
+  - rmse
+  - mae_pixel
+  - mse_pixel
+data_mean: [ 0.6737243 ]  # 0.6737243 from openstl(Their license is the Apache-2.0 License.)
+data_std: [ 0.36239654 ]  # 0.36239654 from openstl(Their license is the Apache-2.0 License.)
+draw_style: heat
+heat_cmap: 'GnBu'
+draw_per_channel: True
+inverse_transform: True
