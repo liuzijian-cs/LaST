@@ -6,9 +6,19 @@ English | [简体中文](docs/cn/README_CN.md)
 
 ## Status 🔬
 
+**核心训练代码已全部上传完成。目前，我们正致力于完善项目文档，并对已上传代码进行新一轮的可用性复核与测试。**
+
+**All training-related code has been uploaded. We are currently actively updating the documentation and verifying the usability of the uploaded code to ensure a smooth experience for everyone.**
+
 - [X] [2025-11-22] **Code Release**（**The relevant model code has been uploaded**, and the remaining code will be gradually supplemented.）
-- [ ] We are actively organizing and uploading all code related to training and validation.
+- [X] [2025-11-30] We are actively organizing and uploading all code related to training and validation.
 - [ ] We are actively writing relevant documentation to help readers quickly understand and reproduce our research.
+
+- Eval
+
+```python
+python main.py --eval --ckpt LaST_best_checkpoints/taxi_beijing/best.ckpt --args LaST_best_checkpoints/taxi_beijing/args.yaml
+```
 
 # 1. Quick Start 🎇:
 
