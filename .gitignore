@@ -9,3 +9,6 @@ workspace.xml
 
 # Python
 __pycache__/
+
+# LaST
+console_output.txt
