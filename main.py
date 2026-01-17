@@ -36,7 +36,7 @@ def default_parser():
     # Tasks Options(任务配置): Priority(优先级): --ckpt > --args > --conf
     parser.add_argument('--ckpt', type=str, default='', help='./test.ckpt : Continue training ckpt file.')
     parser.add_argument('--args', type=str, default='', help='./args.yaml : Using an existing args file.')
-    parser.add_argument('--conf', type=str, default='TaxiBJ', help='./data.conf : Dataset configuration.')
+    parser.add_argument('--conf', type=str, default='', help='./data.conf : Dataset configuration.')
     parser.add_argument('--eval', action='store_true', default=False, help='Evaluation mode.')
 
     # Multitask

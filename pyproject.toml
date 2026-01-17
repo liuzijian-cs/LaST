@@ -12,23 +12,26 @@ dependencies = [
     "h5netcdf>=1.7.3",
     "hickle>=5.0.3",
     "ipykernel>=7.1.0",
-    "lightning>=2.5.0",
+    "lightning==2.5.0.post0",
     "matplotlib>=3.10.7",
     "netcdf4>=1.7.3",
     "opencv-python>=4.12.0.88",
-    "rich>=14.2.0",
+    "rich==13.9.4",
     "scikit-image>=0.25.2",
-    "torch>=2.0.0",
-    "torchvision>=0.15.0",
+    "timm==0.9.16",
+    "torch==2.5.1",
+    "torchvision==0.20.1",
+    "torchaudio==2.5.1",
     "wandb>=0.23.0",
     "xarray>=2025.11.0",
 ]
 
 [[tool.uv.index]]
-name = "pytorch-cu130"
-url = "https://download.pytorch.org/whl/cu130"
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
 explicit = true
 
 [tool.uv.sources]
-torch = { index = "pytorch-cu130" }
-torchvision = { index = "pytorch-cu130" }
+torch = { index = "pytorch-cu124" }
+torchvision = { index = "pytorch-cu124" }
+torchaudio = { index = "pytorch-cu124" }
