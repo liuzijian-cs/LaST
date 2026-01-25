@@ -1,11 +1,13 @@
 import random
 import numpy as np
+import os
 import os.path as osp
 import torch
 import torch.nn.functional as F
 from torch.utils.data import Dataset
 import tqdm
 import xarray as xr
+import glob
 
 data_map = {
     'z': 'geopotential',
@@ -106,23 +108,44 @@ class WeatherBenchDataset(Dataset):
 
     def _load_data_xarray(self, data_name, levels):
         """Loading full data with xarray"""
-        try:
-            dataset = xr.open_mfdataset(self.data_root+'/{}/{}*.nc'.format(
-                data_map[data_name], data_map[data_name]), combine='by_coords')
-        except (AttributeError, ValueError):
-            assert False and 'Please install xarray and its dependency (e.g., netcdf4), ' \
-                                'pip install xarray==0.19.0,' \
-                                'pip install netcdf4 h5netcdf dask'
-        except OSError:
-            print("OSError: Invalid path {}/{}/*.nc".format(self.data_root, data_map[data_name]))
-            assert False
+        # Use os.path.join for cross-platform compatibility
+        data_folder = data_map[data_name]
+        data_pattern = os.path.join(self.data_root, data_folder, f"{data_folder}*.nc")
+        # Convert to absolute path and normalize path separators
+        data_pattern = os.path.abspath(os.path.normpath(data_pattern))
+        
+        # Try different engines for compatibility
+        # h5netcdf often has better compatibility with HDF5 files
+        engines = ['h5netcdf', 'netcdf4', 'scipy']
+        dataset = None
+        last_error = None
+        
+        for engine in engines:
+            try:
+                dataset = xr.open_mfdataset(
+                    data_pattern, 
+                    combine='by_coords', 
+                    lock=False,
+                    engine=engine
+                )
+                break  # Success, exit the loop
+            except Exception as e:
+                last_error = e
+                print(f"Warning: Failed to open with engine '{engine}': {e}")
+                continue
+        
+        if dataset is None:
+            print(f"OSError: Failed to open files with all engines: {data_pattern}")
+            print(f"Last error: {last_error}")
+            print("Please check if the NetCDF files are corrupted or try reinstalling: pip install netcdf4 h5netcdf --force-reinstall")
+            raise last_error
 
         if 'time' not in dataset.indexes:
             dataset = dataset.expand_dims(dim={"time": 1}, axis=0)
         else:
             dataset = dataset.sel(time=slice(*self.training_time))
             dataset = dataset.isel(time=slice(None, -1, self.step))
-            self.time_size = dataset.dims['time']
+            self.time_size = dataset.sizes['time']  # Use .sizes instead of .dims for future compatibility
 
         if 'level' not in dataset.indexes:
             dataset = dataset.expand_dims(dim={"level": 1}, axis=1)
