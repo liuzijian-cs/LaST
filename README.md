@@ -4,15 +4,87 @@ This repository contains the training framework, model implementation, configura
 
 English | [简体中文](docs/cn/README_CN.md)
 
-## Status 🔬
+> **All training code, best checkpoints, and configuration files are now available.** Results are fully reproducible on an NVIDIA RTX 4090 using the specified PyTorch, CUDA, and Lightning versions.
 
-**核心训练代码已全部上传完成。目前，我们正致力于完善项目文档，并对已上传代码进行新一轮的可用性复核与测试。**
+> **Note: The paper is currently under review.** Due to ongoing graduation and job-search commitments, comprehensive documentation and additional utility scripts will be refined and expanded gradually after the review process is complete to better support the community. Stay tuned!
 
-**All training-related code has been uploaded. We are currently actively updating the documentation and verifying the usability of the uploaded code to ensure a smooth experience for everyone.**
+## Overview
 
-- [X] [2025-11-22] **Code Release**（**The relevant model code has been uploaded**, and the remaining code will be gradually supplemented.）
-- [X] [2025-11-30] We are actively organizing and uploading all code related to training and validation.
-- [ ] We are actively writing relevant documentation to help readers quickly understand and reproduce our research.
+We propose LaST, a Transformer-based network designed specifically for spatio-temporal predictive learning (STPL) that dynamically integrates local awareness into global modeling. At its core is the Spatio-Temporal Local-Aware Attention (STLAA) mechanism, which jointly captures local and global dependencies within a single attention layer by combining parallel local attention (operating on query-centered spatio-temporal windows) with global self-attention, followed by unified softmax normalization for seamless integration. LaST further enhances local feature representation and parameter efficiency through Depthwise Convolutional Gated Linear Units (DCGLU) in the feed-forward network and introduces 3D spatio-temporal positional encoding to preserve structural continuity and mitigate positional insensitivity.
+
+Extensive experiments across six real-world datasets in four domains (traffic forecasting, meteorology, ocean dynamics, and human motion capture) demonstrate LaST's superior performance and efficiency. It achieves consistent MSE reductions—e.g., 5.78% on TaxiBJ, 2.17% on WeatherBench, and 8.69% on sea surface height datasets—while using fewer parameters than competing methods. Comprehensive ablation studies validate the effectiveness and interpretability of each component. Code, training scripts, best checkpoints, and configuration files are provided for full reproducibility.
+
+![Overall structure of LaST.](docs/figs/Figure_2.jpg)
+> Figure: Overall structure of LaST.
+
+![Overall structure of LaST.](docs/figs/Figure_3.jpg)
+> Figure: Detailed architecture of STLAA blocks. Each STLAA block sequentially integrates a TLAAB and SLAAB based on the temporal and spatial dimensions of the input. Both modules adopt a dual-branch structure, consisting of a global attention branch and a local attention branch. The local attention branch operates on $1 \times 3$ temporal windows in TLAAB and $3 \times 3$ spatial neighbourhoods in SLAAB.
+
+## Installation 🎇
+
+### Project Structure
+
+```
+LaST/
+├── main.py                    # Main entry point for training and evaluation
+├── batch_runner.py            # Batch script runner for sequential training tasks
+├── pyproject.toml             # Project configuration and dependencies
+├── data/                      # Dataset modules and data loaders
+├── method/                    # Model implementations
+│   ├── __init__.py            # Model factory and setup functions
+│   ├── LaST/                  # LaST model implementation
+│   ├── PredFormer/            # PredFormer baseline implementation
+│   └── DEMO/                  # Demo model template
+├── utils/                     # Utility modules and helpers
+├── docs/                      # Documentation files
+└── LaST_best_checkpoints/     # Model checkpoints
+```
+
+### Environment Setup
+
+To ensure full reproducibility of our results, we recommend setting up the environment using one of the methods below. The project uses `pyproject.toml` for dependency management.
+
+We recommend `uv` as the primary method for quick and reliable environment setup.
+
+#### Using uv (Recommended)
+
+`uv` is a fast, modern Python package and project manager developed by Astral, and we recommend using it to quickly set up environments.
+
+##### For Windows:
+
+```bash
+# Install uv (if not already installed)
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Sync dependencies and create/activate the virtual environment
+uv sync
+.\.venv\Scripts\activate
+```
+
+##### For Linux and macOS:
+```bash
+# Install uv (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Sync dependencies and create/activate the virtual environment
+uv sync
+source .venv/bin/activate
+```
+
+---
+> **This repository is updated to the current stage of our work. Additional content, including more comprehensive documentation, utility scripts, and refinements, will be actively added once the paper is officially published. Stay tuned! 🚀**
+---
+**The remaining sections are currently under development.**
+---
+
+
+
+
+
+
+
+
+
 
 - Eval
 
@@ -26,7 +98,6 @@ python main.py --eval --ckpt LaST_best_checkpoints/taxi_beijing/best.ckpt --args
 
 ### UV
 
-`uv` is a fast, modern Python package and project manager developed by Astral, and we recommend using it to quickly set up environments.
 
 #### For Windows System:
 
