@@ -2,11 +2,15 @@
 
 This repository contains the training framework, model implementation, configuration files, and checkpoints for our paper, "LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness." The implementation is based on PyTorch and PyTorch Lightning.
 
+- Paper: https://www.sciencedirect.com/science/article/abs/pii/S0950705126004624
+
 English | [简体中文](docs/cn/README_CN.md)
 
 > **All training code, best checkpoints, and configuration files are now available.** Results are fully reproducible on an NVIDIA RTX 4090 using the specified PyTorch, CUDA, and Lightning versions.
 
-> **Note: The paper is currently under review.** Due to ongoing graduation and job-search commitments, comprehensive documentation and additional utility scripts will be refined and expanded gradually after the review process is complete to better support the community. Stay tuned!
+> **Due to ongoing graduation and job-search commitments, comprehensive documentation and additional utility scripts will be refined and expanded gradually after the review process is complete to better support the community. Stay tuned!**
+
+> **The core training and validation code has already been uploaded. Additional utilities and documentation will be organized and released progressively after the review process, no later than May 1.**
 
 ## Overview
 
