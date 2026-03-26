@@ -1,6 +1,12 @@
 # VS Code
 .vscode/
 
+# System
+.DS_Store
+
+# Dataset
+*.npz
+
 # IntelliJ IDEA / JetBrains
 .idea/
 *.iml
@@ -12,3 +18,7 @@ __pycache__/
 
 # LaST
 console_output.txt
+
+# Logs
+logs/
+working_path/

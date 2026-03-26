@@ -70,7 +70,7 @@ def default_parser():
     
     # Lightning Framework(Lightning框架配置):
     parser.add_argument('--seed', type=int, default=42, help='Random seed (lightning.seed_everything).')
-    parser.add_argument('--device', default='gpu', type=str, choices=['gpu', 'cpu'], help='config accelerator')
+    parser.add_argument('--device', default='gpu', type=str, choices=['gpu', 'cpu', 'mps', 'auto'], help='config accelerator')
     parser.add_argument('--n_device', default=1, type=int, help='Number of gpus on the current node.')
     parser.add_argument('--fp16', action='store_true', default=True, help='Use FP16 (mixed precision)')
     parser.add_argument('--n_val_every', default=5, type=int, help='validation every n epochs')
