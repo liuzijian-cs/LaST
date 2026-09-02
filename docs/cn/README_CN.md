@@ -1,133 +1,116 @@
-# LaST
-简体中文 | [English](../../README.md)
+# LaST：面向时空预测的动态局部感知 Transformer 网络
 
-本仓库包含了我们论文《LaST：一种面向时空预测的动态局部感知Transformer网络》的代码与模型。实现基于PyTorch与PyTorch Lightning框架。
+本仓库包含 **LaST** 的官方 PyTorch 与 PyTorch Lightning 实现，以及训练配置和预训练检查点。
 
----
+- **论文：** [LaST: A transformer-based network for spatio-temporal predictive learning with dynamic local awareness](https://www.sciencedirect.com/science/article/pii/S0950705126004624)
+- **语言：** 简体中文 | [English](../../README.md)
 
-## 项目状态 🔬
 
-我们的论文已进入同行评审阶段。我们已完成多轮论文撰写与修订，并会持续上传和更新部分非核心代码模块。全部代码将在论文发表后第一时间公开，敬请关注！🫡
+## 项目简介
 
-**进度时间线：**
-- [x] [2024-11-13] 模型实现
-- [x] [2024-12-26] 实验结果
-- [x] [2025-02-17] 深入分析与论文撰写
-- [x] [2025-05-27] 论文修订
-- [ ] [当前] 论文评审中 & 部分代码整理上传
-- [ ] 代码全部开源
+LaST 是一个面向时空预测学习（STPL）的 Transformer 网络。其核心时空局部感知注意力（STLAA）机制在单个注意力层中结合以查询为中心的局部注意力和全局自注意力。LaST 还使用深度卷积门控线性单元（DCGLU）和三维时空位置编码，以增强局部特征建模并保留时空结构。
 
----
+实验覆盖交通预测、气象、海洋动力学和人体运动捕捉四个领域的六个数据集。LaST 在减少参数量的同时取得了稳定的性能提升，完整实验结果和消融分析请参见论文。
 
-## 1. 快速开始 🎇
+![LaST 整体结构。](../figs/Figure_2.jpg)
 
-```shell
-conda create -n LaST python=3.12
-conda activate LaST
+*LaST 整体结构。*
 
-# 安装依赖包
-pip install lightning -i https://mirrors.aliyun.com/pypi/simple
-# pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy
-# pip install lightning wandb opencv-python torchmetrics torchvision matplotlib rich ipykernel xarray netcdf4 cartopy -i https://mirrors.aliyun.com/pypi/simple
+![STLAA 模块的详细结构。](../figs/Figure_3.jpg)
 
-# （可选）Jupyter Notebook 用户可用如下命令安装内核：
-python -m ipykernel install --user --name=last
+*每个 STLAA 模块依次集成时序局部感知注意力模块（TLAAB）和空间局部感知注意力模块（SLAAB），其局部分支分别使用 $1 \times 3$ 时序窗口和 $3 \times 3$ 空间邻域。*
+
+## 环境安装
+
+项目需要 Python 3.12 或更高版本，并通过 `pyproject.toml` 和 `uv.lock` 管理依赖。
+
+### Windows
+
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+uv sync
+.\.venv\Scripts\activate
 ```
 
----
+### Linux 与 macOS
 
-## 2. 训练 🏋️‍♂️
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
+source .venv/bin/activate
+```
 
-![](/docs/figs/Table1.jpg)
-实验所用数据集统计信息。
+## 数据准备
 
-### 2.1. 下载数据集 🗂️
+![实验使用的数据集。](../figs/Table1.jpg)
 
-我们已将常用数据集整理并上传至 Google Drive 和百度网盘，您可直接下载，或按需自行准备。
+数据集模块和配置文件位于 `data/` 目录。数据接口及自定义数据集的接入方法请参见[数据模块文档](data.md)。
 
-数据部分的代码结构如下：
+| 数据集 | Google Drive | 百度网盘 | 存放位置 |
+| --- | --- | --- | --- |
+| [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ) | [下载](https://drive.google.com/file/d/1HDN_hF2pOP2JT97kB8VCREIfe5Z22Co-/view?usp=sharing) | [下载](https://pan.baidu.com/s/1VDHPuy61GGwqt05t4NVH8A?pwd=iSHU) | `data/TaxiBJ/dataset.npz` |
+| [WeatherBench](https://github.com/pangeo-data/WeatherBench)（T2m、Tcc、Rl） | [下载](https://drive.google.com/file/d/1wxIXK-1vZ9tST_5xB3Ph3QpVB6Q9YhB1/view?usp=sharing) | [下载](https://pan.baidu.com/s/1Wa1S2qjV0fAb0bWlMswnYg?pwd=iSHU) | `data/WeatherBench/5_625/2_temperature/{xxx}.nc` |
+| [Human3.6M](http://vision.imar.ro/human3.6m/description.php) | [下载](https://drive.google.com/file/d/1jwrXUO6eBh8689NJO8WYoeNMwXtoUD8t/view?usp=sharing) | [下载](https://pan.baidu.com/s/1x78V54ueiW3Iz2CgMOb6zA?pwd=iSHU) | `data/Human/images` 和 `data/Human/images_txt` |
+| [CORAv2.0](https://mds.nmdis.org.cn/) | - | - | 请向数据集提供方申请下载。 |
+
+## 使用方法
+
+使用数据集配置训练 LaST：
+
+```bash
+python main.py --conf TaxiBJ
+```
+
+也可以使用已有实验配置：
+
+```bash
+python main.py --args path/to/args.yaml
+```
+
+使用预训练检查点评估模型：
+
+```bash
+python main.py --eval \
+  --ckpt LaST_best_checkpoints/taxi_beijing/best.ckpt \
+  --args LaST_best_checkpoints/taxi_beijing/args.yaml
+```
+
+运行 `python main.py --help` 可查看全部命令行参数。
+
+## 项目结构
 
 ```text
-├── data
-│   ├── __init__.py  # 如需添加自定义数据集，请在此文件的 data_dict 字典和 setup_data() 函数中注册
-│   ├── TaxiBJ
-│   │   ├── __init__.py
-│   │   ├── conf.yaml       # 配置文件，包含数据集参数
-│   │   ├── dataset.npz     # TaxiBJ 数据集文件
-│   │   └── TaxiBJDataModule.py     # 数据处理文件
-...
+LaST/
+├── main.py                    # 训练与评估入口
+├── batch_runner.py            # 顺序实验脚本
+├── pyproject.toml             # 项目配置与依赖
+├── data/                      # 数据集模块与数据加载器
+├── method/                    # LaST 与基线模型实现
+├── utils/                     # 训练工具与回调函数
+├── docs/                      # 文档与图片
+└── LaST_best_checkpoints/     # 预训练检查点与配置
 ```
 
-完整数据模块说明及自定义数据集训练方法，请参见[数据模块介绍](data.md)。
+## 致谢
 
-**常用数据集下载表：**
+本项目的训练框架参考了 [OpenSTL](https://github.com/chengtan9907/OpenSTL)，并根据 PyTorch Lightning 的设计进行了调整。模型设计也受到 [PredFormer](https://arxiv.org/abs/2410.04733) 的启发。
 
-| 数据集名称 | Google Drive | 百度网盘 | 说明 |
-|---|---|---|---|
-| [TaxiBJ](https://github.com/TolicWang/DeepST/tree/master/data/TaxiBJ) | [下载](https://drive.google.com/file/d/1HDN_hF2pOP2JT97kB8VCREIfe5Z22Co-/view?usp=sharing) | [下载](https://pan.baidu.com/s/1VDHPuy61GGwqt05t4NVH8A?pwd=iSHU) | `data/TaxiBJ/dataset.npz` |
-| [Weather Bench](https://github.com/pangeo-data/WeatherBench) (T2m, Tcc, Rl) | [下载](https://drive.google.com/file/d/1wxIXK-1vZ9tST_5xB3Ph3QpVB6Q9YhB1/view?usp=sharing) | [下载](https://pan.baidu.com/s/1Wa1S2qjV0fAb0bWlMswnYg?pwd=iSHU) | `data/WeatherBench/5_625/2_temperature/{xxx}.nc` |
-| [Human3.6M](http://vision.imar.ro/human3.6m/description.php) | [下载](https://drive.google.com/file/d/1jwrXUO6eBh8689NJO8WYoeNMwXtoUD8t/view?usp=sharing) | [下载](https://pan.baidu.com/s/1x78V54ueiW3Iz2CgMOb6zA?pwd=iSHU) | `data/Human/images` & `data/Human/images_txt` |
-| [CORAv2.0](https://mds.nmdis.org.cn/) | - | - | 请前往 https://mds.nmdis.org.cn 申请下载 |
+## 论文引用
 
----
-
-### 2.2. 训练方法
-
-我们提供两种主要训练方式，并支持顺序训练脚本：
-
-#### ✅ 方法一：配置文件训练
-
-（请补充具体用法示例）
-
-#### ✅ 方法二：命令行参数训练
-
-（请补充具体用法示例）
-
-#### 🔁 顺序训练脚本
-
-（请补充具体用法示例）
-
----
-
-## 3. 项目结构简介
-
-- `data/`：数据集及其处理模块
-- `utils/`：常用工具函数（如日志输出、彩色打印等）
-- `docs/`：文档与说明
-- `README.md`：英文主文档
-- `LICENSE`：MIT开源协议
-
----
-
-## 4. 致谢与参考 🔗
-
-1. 🫡 本项目训练框架主要参考 [OpenSTL](https://github.com/chengtan9907/OpenSTL)，并根据PyTorch Lightning范式重构。
-2. 🫡 核心思想亦受到 [PredFormer](https://arxiv.org/abs/2410.04733) 启发。
-
----
-
-## 5. 论文引用 📚
-
-如果本仓库对您的研究有帮助，欢迎引用我们的论文（正式发表后会补充完整信息）：
+如果本仓库对您的研究有帮助，欢迎引用：
 
 ```bibtex
-@ARTICLE{Liu2025LaST,
-    title = {LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness},
-    author = {Zijian Liu, Yehao Wang, Zhuolin Li, Jie Yu, Chengci Wang, Zhiyu Liu, Shuai Zhang and Lingyu Xu},
-    booktitile = {},
-    note = {Under review},
-    year={2025}
+@article{Liu2026LaST,
+  title   = {LaST: A Transformer-based Network for Spatio-Temporal Predictive Learning with Dynamic Local Awareness},
+  author  = {Zijian Liu and Yehao Wang and Zhuolin Li and Jie Yu and Chengci Wang and Zhiyu Liu and Shuai Zhang and Lingyu Xu},
+  journal = {Knowledge-Based Systems},
+  volume  = {340},
+  pages   = {115722},
+  year    = {2026},
+  doi     = {10.1016/j.knosys.2026.115722}
 }
 ```
 
----
+## 开源协议
 
-## 6. 反馈与贡献
-
-如您发现任何问题或有改进建议，欢迎在 Issues 区留言或直接提交 Pull Request，我们会第一时间处理并致谢😊。
-
----
-
-## 7. 授权协议
-
-本项目采用 MIT License 开源协议，详见 LICENSE 文件。
+本项目采用 [MIT License](../../LICENSE)。
